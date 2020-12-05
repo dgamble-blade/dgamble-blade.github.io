@@ -11,7 +11,7 @@
 
 <meta name="author" content="Danielle Gamble, Sarah Elms, Brooks Sutherland, Ellen Buerk" />
 
-<meta name="date" content="2020-11-25" />
+<meta name="date" content="2020-12-06" />
 
 <title>Eviction Analysis</title>
 
@@ -1676,7 +1676,7 @@ div.tocify {
 
 <h1 class="title toc-ignore">Eviction Analysis</h1>
 <h4 class="author">Danielle Gamble, Sarah Elms, Brooks Sutherland, Ellen Buerk</h4>
-<h4 class="date">11/25/2020</h4>
+<h4 class="date">12/06/2020</h4>
 
 </div>
 
@@ -1692,7 +1692,7 @@ div.tocify {
 </div>
 <div id="load-data" class="section level2">
 <h2>Load Data</h2>
-<p>The LMH eviction filing database The Blade used in its reporting was created using three sources. First, a team of reporters gathered local eviction filings by LMH over the last 5 years across Toledo and Sylvania courts, the two cities in which LMH has housing communities in Ohio. Toledo’s documents are available for download online, and Sylvania’s were only available as hard copies housed in the suburb’s courthouse. Reporters then created data sets for each city using those documents while following the same rubric, and using court document language to create appropriate categories. Meanwhile digital reporters used Toledo’s online court database to gather information on every eviction filing in the city from 2015 onward. We then joined the two data sets together to create one comprehensive LMH eviction filing database.</p>
+<p>The LMH eviction filing database The Blade used in its reporting was created using three sources. First, a team of reporters gathered local eviction filings by LMH over the last five years across Toledo and Sylvania courts, the two cities in which LMH has housing communities in Ohio. Toledo’s documents are available for download online, and Sylvania’s were only available as hard copies housed in the suburb’s courthouse. Reporters then created data sets for each city using those documents while following the same rubric, and using court document language to create appropriate categories. Meanwhile digital reporters used Toledo’s online court database to gather information on every eviction filing in the city from 2015 onward. We then joined the two data sets together to create one comprehensive LMH eviction filing database.</p>
 <p>In the below analyses, evictions filed in 2020 are filtered out. There are two reasons for this. First, only half a year’s worth of data was gathered for 2020 due to resources and time constraints. Second, this year’s coronavirus pandemic meant the U.S. saw unprecedented housing policy, as the CARES Act suspended evictions nationwide for several months and LMH passed emergency policies to extend that suspension locally. Therefore, our team felt in both cases that an analysis of 2020 may lead to erroneous conclusions.</p>
 <p>Click “Code” button to view scripts to load data.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">### Load scraped cases data</span></span>
@@ -1808,10 +1808,10 @@ total_evictions
 <div id="among-most-litigious-landlords" class="section level3">
 <h3>Among most litigious landlords</h3>
 <p><strong>Story Text</strong> [LMH is] one of Lucas County’s most litigious landlords.</p>
-<p><strong>Discussion</strong>: The term “most litigious” in this case is meant to reflect property management groups who file high numbers of evictions. However it does not account for a rate of eviction, as that would require determining the number of units owned by every property manager in the Toledo area over the 5 year time frame.</p>
-<p>A ranking of highest eviction filers was created using the data scraped from Lucas County’s eviction court website over 5 years for the city of Toledo, and centered on plaintiffs in each case. The data was first cleaned to account for minor misspellings, using address information to confirm properties were indeed connected. The data reporter then researched the biggest local property managers in the area to connect complexes to national property managers when the information was available, and to account as much as possible for managers who use multiple limited liability companies to administer eviction filings. However, due to the inherent lack of transparency in LLC filings, the margin of error is unknowable.</p>
+<p><strong>Discussion</strong>: The term “most litigious” in this case is meant to reflect property management groups who file high numbers of evictions. However it does not account for a rate of eviction, as that would require determining the number of units owned by every property manager in the Toledo area over the five year time frame.</p>
+<p>A ranking of highest eviction filers was created using the data gathered digitally from Lucas County’s eviction court website over five years for the city of Toledo, and centered on plaintiffs in each case. The data was first cleaned to account for minor misspellings, using address information to confirm properties were indeed connected. The data reporter then researched the biggest local property managers in the area to connect complexes to national property managers when the information was available, and to account as much as possible for managers who use multiple limited liability companies to administer eviction filings. However, due to the inherent lack of transparency in LLC filings, the margin of error is unknowable.</p>
 <p>Using available information, the data reporter created an eviction breakdown by year of the biggest evictors in Toledo. A snapshot of each year was used rather than a sum of all five years to more accurately reflect the annual impact. This was because some landlords did not own property in all years but their annual rates later generated significant evictions.</p>
-<p>This analysis showed LMH ranks as one of the top 3 evictors in the area every year from 2015 through 2019.</p>
+<p>This analysis showed LMH ranks as one of the top three evictors in the area every year from 2015 through 2019.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>biggest_evictors_toledo &lt;-<span class="st"> </span>cleaned_scraped_cases_toledo_<span class="dv">2015</span>_<span class="dv">2020</span>_landlord_analysis <span class="op">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="st">  </span><span class="kw">select</span>(file_year, plaintiff) <span class="op">%&gt;%</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">evictions_served =</span> plaintiff) <span class="op">%&gt;%</span></span>
